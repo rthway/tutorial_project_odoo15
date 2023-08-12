@@ -1,0 +1,24 @@
+<!-- doctor_management/views/doctor_view.xml -->
+
+<odoo>
+    <data>
+
+        <menuitem id="rest_main_menu" name="Restaurant" sequence="185"/>
+
+        <menuitem
+            id="rest_staff_submenu"
+            name="Our Team"
+            parent="rest_main_menu"
+            sequence="0"/>
+
+        <menuitem
+            id="staff_id"
+            name="staff"
+            action="rest_staff_action_id"
+            parent="rest_staff_submenu"
+            sequence="1"/>
+
+    </data>
+</odoo>
+
+
