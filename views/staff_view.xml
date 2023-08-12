@@ -38,6 +38,8 @@
                             <field name="dob"/>
                             <field name="mobile"/>
                             <field name="email"/>
+                            <field name="country_id" widget="many2onebutton"/>
+                            
                 </tree>
             </field>
         </record>
