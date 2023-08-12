@@ -11,3 +11,5 @@ class RestStaff(models.Model):
     dob = fields.Date(string="DOB")
     mobile = fields.Char(string="Mobile")
     email = fields.Char(string="Email")
+    country_id = fields.Many2one('res.country', string='Country')
+
