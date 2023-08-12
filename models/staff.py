@@ -4,6 +4,7 @@ class RestStaff(models.Model):
     _name = 'rest.staff'
     _description = "This is the model for our staff"
     _rec_name='name'
+    _order='age asc'
 
     name = fields.Char(string="Name", size=50)
     age = fields.Integer(string="Age")
