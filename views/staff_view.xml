@@ -16,6 +16,7 @@
                             <field name="mobile"/>
                             <field name="email"/>
                             <field name="country_id"/>
+                            <field name="country_ids"/>
                         </group>
                     </sheet>
                 </form>
