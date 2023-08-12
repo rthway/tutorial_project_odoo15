@@ -10,13 +10,17 @@
                 <form string="Staff Form">
                     <sheet>
                         <group>
-                            <field name="name"/>
-                            <field name="age"/>
-                            <field name="dob"/>
-                            <field name="mobile"/>
-                            <field name="email"/>
-                            <field name="country_id"/>
-                            <field name="country_ids"/>
+                            <group>
+                                <field name="name"/>
+                                <field name="age"/>
+                                <field name="dob"/>
+                                <field name="mobile"/>
+                            </group>
+                            <group>
+                                <field name="email"/>
+                                <field name="country_id"/>
+                                <field name="country_ids"/>
+                            </group>
                         </group>
                     </sheet>
                 </form>
