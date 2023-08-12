@@ -13,5 +13,6 @@ class RestStaff(models.Model):
     email = fields.Char(string="Email")
     country_id = fields.Many2one('res.country', string='Country')
     country_ids = fields.Many2many('res.country', string='Countrys')
+    country_code=fields.Char(string="Country Code", related="country_id.code")
     
 
