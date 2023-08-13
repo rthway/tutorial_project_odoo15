@@ -23,6 +23,23 @@
                                 <field name="country_ids" widget="many2many_tags" />
                             </group>
                         </group>
+                        
+                        <notebook>
+                            <page string="Staff Line">
+                                <field name="staff_line_ids">
+                                    <tree string="Staff Line">
+                                        <field name="name"/>
+                                        <field name="product_id"/>
+                                    </tree>
+                                    <form string="Staff Line">
+                                        <group>
+                                            <field name="name"/>
+                                            <field name="product_id"/>
+                                        </group>
+                                    </form>
+                                </field>
+                            </page>
+                        </notebook>
                     </sheet>
                 </form>
             </field>
