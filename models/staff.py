@@ -12,6 +12,15 @@ class RestStaff(models.Model):
     def delete_one2many(self):
         for record in self:
             record.staff_line_ids=[(5,0,0)]
+        return{
+            'effect':{
+                'fadeout':'slow',
+                'type':'rainbow_man',
+                'message':'Record has benn deleted succesufully'
+            }
+        }
+
+
     def do_resign(self):
         for rec in self:
             rec.status= 'resigned'
