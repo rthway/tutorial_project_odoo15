@@ -12,7 +12,7 @@
                         <button name="new_fun" string="Pass a value" type="object" class="oe_highlight"/>
                         <button name="delete_one2many" string="Delete line" type="object" class="oe_highlight"/>
                         <field name="status" widget="statusbar"/>
-                        <button name="do_resign" string="Resigned" type="object" class="oe_highlight"/>
+                        <button name="do_resign" string="Resigned" type="object" class="oe_highlight" attrs="{'invisible': [('status', '!=', 'active')]}"/>
                     </header>
                     <sheet>
                         <group>
