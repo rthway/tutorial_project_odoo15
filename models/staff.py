@@ -1,4 +1,4 @@
-from odoo import models, fields,api
+from odoo import models, fields,api,exceptions, _
 
 class RestStaff(models.Model):
     _name = 'rest.staff'
@@ -20,7 +20,7 @@ class RestStaff(models.Model):
     def create(self, vals):
         existing_staff = self.search([('name', '=', vals.get('name'))])
         if existing_staff:
-            raise exceptions.ValidationError("A staff with this name already exists.")
+            raise exceptions.ValidationError(_("A staff with this name already exists."))
         return super(RestStaff, self).create(vals)
     
 class RestStaffLines(models.Model):
