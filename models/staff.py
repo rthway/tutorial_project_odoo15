@@ -6,6 +6,9 @@ class RestStaff(models.Model):
     _rec_name='name'
     _order='age asc'
 
+    def new_fun(self):
+        print("Exucuted a function by object button .............")
+
     name = fields.Char(string="Name")
     age = fields.Integer(string="Age")
     dob = fields.Date(string="DOB")

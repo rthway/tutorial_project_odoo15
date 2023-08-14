@@ -8,6 +8,9 @@
             <field name="model">rest.staff</field>
             <field name="arch" type="xml">
                 <form string="Staff Form">
+                    <header>
+                        <button name="new_fun" string="Pass a value" type="object"/>
+                    </header>
                     <sheet>
                         <group>
                             <group>
