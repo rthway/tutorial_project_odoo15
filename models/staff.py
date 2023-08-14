@@ -8,6 +8,10 @@ class RestStaff(models.Model):
 
     def new_fun(self):
         print("Exucuted a function by object button .............")
+    
+    def delete_one2many(self):
+        for record in self:
+            record.staff_line_ids=[(5,0,0)]
 
     name = fields.Char(string="Name")
     age = fields.Integer(string="Age")

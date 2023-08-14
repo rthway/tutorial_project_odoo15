@@ -9,7 +9,8 @@
             <field name="arch" type="xml">
                 <form string="Staff Form">
                     <header>
-                        <button name="new_fun" string="Pass a value" type="object"/>
+                        <button name="new_fun" string="Pass a value" type="object" class="oe_highlight"/>
+                        <button name="delete_one2many" string="Delete line" type="object" class="oe_highlight"/>
                     </header>
                     <sheet>
                         <group>
