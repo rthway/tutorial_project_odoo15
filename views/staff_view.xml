@@ -56,6 +56,7 @@
             <field name="model">rest.staff</field>
             <field name="arch" type="xml">
                 <tree string="Staff Tree">
+                            <field name="sequence" widget="handle"/>
                             <field name="name"/>
                             <field name="age"/>
                             <field name="dob"/>

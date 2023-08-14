@@ -15,6 +15,7 @@ class RestStaff(models.Model):
     country_ids = fields.Many2many('res.country', string='Countrys')
     country_code=fields.Char(string="Country Code", related="country_id.code")
     staff_line_ids = fields.One2many('rest.staff.lines', 'connecting_field', string='Staff Line')
+    sequence = fields.Integer(string="seq.")
     
     @api.model
     def create(self, vals):
