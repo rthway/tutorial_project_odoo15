@@ -27,7 +27,12 @@
                         <notebook>
                             <page string="Staff Line">
                                 <field name="staff_line_ids">
-                                    <tree string="Staff Line" editable="top">
+                                    <tree string="Staff Line" editable="top" widget="section_and_note_one2many">
+                                    <control>
+                                        <create string="Add a Line"/>
+                                        <create string="Add a Section" context="{'default_display_type':'line_section'}"/>
+                                        <create string="Add a Note" context="{'default_display_type':'line_note'}"/>
+                                    </control>
                                         <field name="name"/>
                                         <field name="product_id"/>
                                     </tree>
