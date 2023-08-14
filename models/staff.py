@@ -12,6 +12,10 @@ class RestStaff(models.Model):
     def delete_one2many(self):
         for record in self:
             record.staff_line_ids=[(5,0,0)]
+    def do_resign(self):
+        for rec in self:
+            rec.status= 'resigned'
+
 
     name = fields.Char(string="Name")
     age = fields.Integer(string="Age")
