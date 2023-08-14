@@ -63,7 +63,7 @@
             <field name="name">rest.staff.tree.view.id</field>
             <field name="model">rest.staff</field>
             <field name="arch" type="xml">
-                <tree string="Staff Tree">
+                <tree string="Staff Tree" decoration-info="status=='active'" decoration-danger="status=='resigned'">
                             <field name="sequence" widget="handle"/>
                             <field name="name"/>
                             <field name="age"/>
@@ -71,6 +71,7 @@
                             <field name="mobile"/>
                             <field name="email"/>
                             <field name="country_id" widget="many2onebutton"/>
+                            <field name="status"/>
                             
                 </tree>
             </field>
