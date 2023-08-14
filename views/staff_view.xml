@@ -77,16 +77,29 @@
             </field>
         </record>
 
+        <!-- search view goes here  -->
+       <record id="rest_staff_search_view_id" model="ir.ui.view">
+            <field name="name">rest.staff.search.view.id</field>
+            <field name="model">rest.staff</field>
+            <field name="arch" type="xml">
+                <search string="Staff Search">
+                    <field name="name"/>
+                    <field name="age"/>
+                    <field name="status"/>    
+                </search>
+            </field>
+        </record>
+
         <record id="rest_staff_action_id" model="ir.actions.act_window">
             <field name="name">Staff</field>
             <field name="res_model">rest.staff</field>
-            <field name="view_mode">tree,form</field>
+            <field name="view_mode">tree,form,search</field>
             <field name="help" type="html">
                 <p class="o_view_nocontent_empty_folder">
                     There is not record of staff.
                 </p>
             </field>
-        </record> -->
+        </record>
 
 
     </data>
