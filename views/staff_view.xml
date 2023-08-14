@@ -11,6 +11,7 @@
                     <header>
                         <button name="new_fun" string="Pass a value" type="object" class="oe_highlight"/>
                         <button name="delete_one2many" string="Delete line" type="object" class="oe_highlight"/>
+                        <field name="status" widget="statusbar"/>
                     </header>
                     <sheet>
                         <group>

@@ -23,6 +23,7 @@ class RestStaff(models.Model):
     country_code=fields.Char(string="Country Code", related="country_id.code")
     staff_line_ids = fields.One2many('rest.staff.lines', 'connecting_field', string='Staff Line')
     sequence = fields.Integer(string="seq.")
+    status = fields.Selection([('active','Active'),('resigned','Resigned')],string="Status", readonly=True, default="active")
     
     @api.model
     def create(self, vals):
