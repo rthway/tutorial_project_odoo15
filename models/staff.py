@@ -31,3 +31,4 @@ class RestStaffLines(models.Model):
     connecting_field = fields.Many2one('rest.staff', string="Staff ID")
     name = fields.Char(string="Name",  required=True)
     product_id = fields.Many2one('product.product', string="Product", required=True)
+    sequence = fields.Integer(string="seq.")
