@@ -85,6 +85,7 @@
                 <search string="Staff Search">
                     <field name="name"/>
                     <field name="age"/>
+                    <field name="email" filter_domain="['|',('mobile','ilike',self),('email','ilike',self)]"/>
                     <field name="status"/>    
                 </search>
             </field>
