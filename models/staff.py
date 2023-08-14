@@ -16,17 +16,17 @@ class RestStaff(models.Model):
     country_code=fields.Char(string="Country Code", related="country_id.code")
     staff_line_ids = fields.One2many('rest.staff.lines', 'connecting_field', string='Staff Line')
     
-    # @api.model
-    # def create(self, vals):
-    #     existing_staff = self.search([('name', '=', vals.get('name'))])
-    #     if existing_staff:
-    #         raise exceptions.ValidationError("A staff with this name already exists.")
-    #     return super(RestStaff, self).create(vals)
+    @api.model
+    def create(self, vals):
+        existing_staff = self.search([('name', '=', vals.get('name'))])
+        if existing_staff:
+            raise exceptions.ValidationError("A staff with this name already exists.")
+        return super(RestStaff, self).create(vals)
     
 class RestStaffLines(models.Model):
     _name = 'rest.staff.lines'
     _description = "This is the model for staff lines"
 
     connecting_field = fields.Many2one('rest.staff', string="Staff ID")
-    name = fields.Char(string="Name")
-    product_id = fields.Many2one('product.product', string="Product")
+    name = fields.Char(string="Name",  required=True)
+    product_id = fields.Many2one('product.product', string="Product", required=True)

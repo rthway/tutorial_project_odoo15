@@ -27,7 +27,7 @@
                         <notebook>
                             <page string="Staff Line">
                                 <field name="staff_line_ids">
-                                    <tree string="Staff Line">
+                                    <tree string="Staff Line" editable="top">
                                         <field name="name"/>
                                         <field name="product_id"/>
                                     </tree>
