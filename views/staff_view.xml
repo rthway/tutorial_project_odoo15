@@ -114,7 +114,7 @@
                         <t t-name="kanban-box">
                             <div class="oe_kanban_global_click" style="background-color:#c2f2d8; color:#0602f5"> <!-- for record clickable-->
                                 <div>
-                                    <ul>
+                                    <ul style="list-style-type:none;">
                                         <li>
                                             <b>Name: </b>
                                             <field name='name'/>
