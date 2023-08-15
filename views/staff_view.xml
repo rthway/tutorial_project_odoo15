@@ -112,7 +112,7 @@
                 <kanban string="Staff kanban" class="o_res_partner_kanban">
                     <templates>
                         <t t-name="kanban-box">
-                            <div class="oe_kanban_global_click" > <!-- for record clickable-->
+                            <div class="oe_kanban_global_click" style="background-color:#c2f2d8; color:#0602f5"> <!-- for record clickable-->
                                 <div>
                                     <ul>
                                         <li>
