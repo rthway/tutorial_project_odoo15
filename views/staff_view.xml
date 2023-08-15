@@ -15,7 +15,7 @@
                         <button name="do_resign" string="Resigned" type="object" class="oe_highlight" attrs="{'invisible': [('status', '!=', 'active')]}"/>
                     </header>
                     <sheet>
-                        <field name="image"/>
+                        <field name="image" widget="image" style="width:100px;height:100px;"/>
                         <group>
                             <group>
                                 <field name="name"/>
