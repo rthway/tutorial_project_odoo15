@@ -114,14 +114,24 @@
                         <t t-name="kanban-box">
                             <div class="oe_kanban_global_click" > <!-- for record clickable-->
                                 <div>
-                                    Name: <field name='name'/>
-                                    <br/>
-                                    Age: <field name='age'/>
-                                    <br/>
-                                    Mobile: <field name='mobile'/>
-                                    <br/>
-                                    Email: <field name='email'/>
-                                    <br/>
+                                    <ul>
+                                        <li>
+                                            <b>Name: </b>
+                                            <field name='name'/>
+                                        </li>
+                                        <li>
+                                            <b>Age: </b>
+                                            <field name='age'/>
+                                        </li>
+                                        <li>
+                                            <b>Mobile: </b>
+                                            <field name='mobile'/>
+                                        </li>
+                                        <li>
+                                            <b>Email: </b>
+                                            <field name='email'/>
+                                        </li>
+                                    </ul>
 
                                 </div>
                             </div>
