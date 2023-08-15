@@ -39,6 +39,7 @@ class RestStaff(models.Model):
     staff_line_ids = fields.One2many('rest.staff.lines', 'connecting_field', string='Staff Line')
     sequence = fields.Integer(string="seq.")
     status = fields.Selection([('active','Active'),('resigned','Resigned')],string="Status", readonly=True, default="active")
+    image = fields.Binary(string="Image")
     
     @api.model
     def create(self, vals):
