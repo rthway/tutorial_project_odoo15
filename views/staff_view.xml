@@ -19,6 +19,7 @@
                             <group>
                                 <field name="name"/>
                                 <field name="age"/>
+                                <field name="gender"/>
                                 <field name="dob"/>
                                 <field name="mobile"/>
                             </group>
@@ -67,6 +68,7 @@
                             <field name="sequence" widget="handle"/>
                             <field name="name"/>
                             <field name="age"/>
+                            <field name="gender"/>
                             <field name="dob"/>
                             <field name="mobile"/>
                             <field name="email"/>
@@ -86,7 +88,13 @@
                     <field name="name"/>
                     <field name="age"/>
                     <field name="email" filter_domain="['|',('mobile','ilike',self),('email','ilike',self)]"/>
-                    <field name="status"/>    
+                    <field name="status"/>
+                    <separator/>
+                    <filter string="Male" name="male" domain="[('gender','=','male')]"/>
+                    <filter string="Female" name="female" domain="[('gender','=','female')]"/>
+                    <separator/>    
+                    <filter string="Active" name="active" domain="[('status','=','active')]"/>
+                    <filter string="Resigned" name="resigned" domain="[('status','=','resigned')]"/>
                 </search>
             </field>
         </record>

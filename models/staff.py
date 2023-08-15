@@ -28,6 +28,7 @@ class RestStaff(models.Model):
 
 
     name = fields.Char(string="Name")
+    gender = fields.Selection([('male','Male'),('female','Female')],string="Gender", default="male")
     age = fields.Integer(string="Age")
     dob = fields.Date(string="DOB")
     mobile = fields.Char(string="Mobile")
