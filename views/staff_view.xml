@@ -116,7 +116,7 @@
                         <t t-name="kanban-box">
                             <div class="oe_kanban_global_click" style="height:135px; background-color:#c2f2d8; color:#0602f5"> <!-- for record clickable-->
                                 <div style="width:30%;float:left;display:inline-block;">
-                                    <img alt="Avatar" t-att-src="kanban_image('rest.staff','image',record.id.raw_value)"/>
+                                    <img alt="Avatar" t-att-src="kanban_image('rest.staff','image',record.id.raw_value)" style="height:100px;width:100px"/>
                                 </div>
                                 <div style="width:70%;float:right;display:inline-block;">
                                     <ul style="list-style-type:none;">
