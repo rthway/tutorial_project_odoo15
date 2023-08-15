@@ -113,6 +113,7 @@
                     There is not record of staff.
                 </p>
             </field>
+            <field name="context">{'search_default_active':1}</field>
         </record>
 
 
