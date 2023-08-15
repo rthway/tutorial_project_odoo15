@@ -95,6 +95,11 @@
                     <separator/>    
                     <filter string="Active" name="active" domain="[('status','=','active')]"/>
                     <filter string="Resigned" name="resigned" domain="[('status','=','resigned')]"/>
+                    <group string="Group By" expand="0">
+                    <filter string="Gender" name="gender" context="{'group_by':'gender'}"/>
+                    <separator/> 
+                    <filter string="Status" name="status" context="{'group_by':'status'}"/>
+                    </group>
                 </search>
             </field>
         </record>
