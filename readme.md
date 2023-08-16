@@ -223,3 +223,182 @@ In Odoo, fields are used to define the structure and behavior of database column
     
 15.  **digits**: Sets the precision (total digits) and scale (decimal places) for numerical fields (e.g., Float and Decimal fields).
 16.  **invisible**: invisible attribute is commonly used in the XML views to control the visibility of fields based on certain conditions. When you set the invisible attribute to a field, you can use an expression to determine whether the field should be visible or not.
+
+## @api on odoo
+In Odoo, the `@api` decorators are used to define various types of methods that interact with records in the Odoo database. These methods can be used to perform various actions like creating, updating, deleting records, or executing business logic. Here are some common types of `@api` methods along with examples:
+
+1.  **@api.model**: This decorator is used for methods that don't require any specific record from the model. They are typically utility methods that don't modify or retrieve specific records.
+
+
+
+```
+from odoo import models, api
+
+class MyModel(models.Model):
+    _name = 'my.model'
+
+ @api.model
+    def do_something(self):
+        # Your logic here
+        return result
+```
+
+2.  **@api.onchange**: This decorator is used for methods that are automatically triggered when the value of a specific field changes. These methods are useful for updating other fields or performing calculations based on the changed field.
+
+
+
+```
+from odoo import models, fields, api
+
+class MyModel(models.Model):
+    _name = 'my.model'
+
+    field_a = fields.Float(string='Field A')
+    field_b = fields.Float(string='Field B')
+
+ @api.onchange('field_a')
+    def _onchange_field_a(self):
+        self.field_b = self.field_a * 2
+```     
+
+3.  **@api.depends**: This decorator is used for computed fields or methods that depend on the values of specific fields. It ensures that the computed field is updated whenever the dependent fields change.
+
+
+```
+from odoo import models, fields, api
+
+class MyModel(models.Model):
+    _name = 'my.model'
+
+    field_a = fields.Float(string='Field A')
+    field_b = fields.Float(string='Field B')
+    computed_field = fields.Float(string='Computed Field', compute='_compute_field')
+
+ @api.depends('field_a', 'field_b')
+    def _compute_field(self):
+        for record in self:
+            record.computed_field = record.field_a + record.field_b
+```
+4.  **@api.constrains**: This decorator is used for methods that enforce constraints on records before they are saved to the database.
+
+
+
+```
+from odoo import models, fields, api
+
+class MyModel(models.Model):
+    _name = 'my.model'
+
+    field_c = fields.Float(string='Field C')
+
+ @api.constrains('field_c')
+    def _check_field_c(self):
+        for record in self:
+            if record.field_c < 0:
+                raise models.ValidationError("Field C cannot be negative.")
+``` 
+
+5.  **@api.multi**: This decorator is used for methods that operate on multiple records. It's typically used for batch operations.
+
+
+
+```
+from odoo import models, api
+
+class MyModel(models.Model):
+    _name = 'my.model'
+
+ @api.multi
+    def perform_batch_operation(self):
+        for record in self:
+            # Your batch operation logic here
+```
+
+6.  **@api.one**: Deprecated in Odoo 10 and removed in Odoo 11. Used for methods that operate on a single record.
+
+These are some of the commonly used `@api` decorators in Odoo. Keep in mind that the decorators available may vary depending on the Odoo version you're using. Always refer to the official Odoo documentation for the version-specific information and usage details.
+
+## ORM methods
+In Odoo, ORM (Object-Relational Mapping) methods are used to interact with the database records of models. ORM methods provide a high-level and Pythonic way to perform database operations like creating, reading, updating, and deleting records. Here are some commonly used ORM methods with examples:
+
+1.  **Creating Records**:
+    -   `create()`: Used to create new records in the database.
+
+
+```
+from odoo import models, fields
+
+class MyModel(models.Model):
+    _name = 'my.model'
+
+    name = fields.Char(string='Name')
+```
+### Creating a new record
+new_record = self.env['my.model'].create({'name': 'New Record Name'})` 
+
+2.  **Reading Records**:
+    -   `search()`: Used to search for records based on certain conditions.
+    -   `browse()`: Used to retrieve specific records by their IDs.
+
+pythonCopy code
+
+```# Searching for records
+records = self.env['my.model'].search([('name', '=', 'Target Name')])
+```
+### Browsing records by ID
+```record = self.env['my.model'].browse(record_id)```
+
+3.  **Updating Records**:
+    -   `write()`: Used to update existing records.
+
+```
+
+`# Updating a record
+record_to_update.write({'name': 'Updated Name'}) 
+```
+4.  **Deleting Records**:
+    -   `unlink()`: Used to delete records from the database.
+
+
+
+```# Deleting a record
+record_to_delete.unlink()
+```
+5.  **Computed Fields**:
+    -   Computed fields are fields that are automatically calculated based on other fields' values. They are defined using the `@api.depends` decorator and computed methods.
+
+
+
+```from odoo import models, fields, api
+
+class MyModel(models.Model):
+    _name = 'my.model'
+
+    field_a = fields.Float(string='Field A')
+    field_b = fields.Float(string='Field B')
+    computed_field = fields.Float(string='Computed Field', compute='_compute_field')
+
+ @api.depends('field_a', 'field_b')
+    def _compute_field(self):
+        for record in self:
+            record.computed_field = record.field_a + record.field_b
+```
+6.  **Constraints**:
+    -   Constraints ensure that certain conditions are met before allowing records to be saved in the database. They are defined using the `@api.constrains` decorator and constraint methods.
+
+
+
+```from odoo import models, fields, api
+
+class MyModel(models.Model):
+    _name = 'my.model'
+
+    field_c = fields.Float(string='Field C')
+
+ @api.constrains('field_c')
+    def _check_field_c(self):
+        for record in self:
+            if record.field_c < 0:
+                raise models.ValidationError("Field C cannot be negative.") 
+```
+These are some examples of how ORM methods are used in Odoo.

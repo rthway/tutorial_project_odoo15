@@ -21,8 +21,7 @@ class RestStaff(models.Model):
                         'message':'Record has benn deleted succesufully'
                     }
                 }
-
-
+   
     def do_resign(self):
         for rec in self:
             rec.status= 'resigned'
