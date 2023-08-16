@@ -207,6 +207,8 @@
                 </p>
             </field>
             <field name="domain">[('gender','=','male')]</field>
+            <field name="context">{'default_gender':'male'}</field>
+
         </record>
 
         <record id="rest_staff_female_action_id" model="ir.actions.act_window">
@@ -219,6 +221,7 @@
                 </p>
             </field>
             <field name="domain">[('gender','=','female')]</field>
+            <field name="context">{'default_gender':'female'}</field>
         </record>
 
         
