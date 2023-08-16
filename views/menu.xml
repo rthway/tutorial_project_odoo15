@@ -12,11 +12,39 @@
             sequence="0"/>
 
         <menuitem
-            id="staff_id"
-            name="staff"
+            id="all_staff"
+            name="All Records"
             action="rest_staff_action_id"
             parent="rest_staff_submenu"
             sequence="1"/>
+        
+        <menuitem
+            id="active_staff"
+            name="Active Staff"
+            action="rest_staff_active_action_id"
+            parent="rest_staff_submenu"
+            sequence="2"/>
+
+        <menuitem
+            id="resigned_staff"
+            name="Resigned Staff"
+            action="rest_staff_resigned_action_id"
+            parent="rest_staff_submenu"
+            sequence="3"/>
+
+        <menuitem
+            id="male_staff"
+            name="Male Staff"
+            action="rest_staff_male_action_id"
+            parent="rest_staff_submenu"
+            sequence="4"/>
+
+        <menuitem
+            id="female_staff"
+            name="Female Staff"
+            action="rest_staff_female_action_id"
+            parent="rest_staff_submenu"
+            sequence="5"/>
 
     </data>
 </odoo>
