@@ -48,6 +48,9 @@ class RestStaff(models.Model):
     sequence = fields.Integer(string="seq.")
     status = fields.Selection([('active','Active'),('resigned','Resigned')],string="Status", readonly=True, default="active")
     image = fields.Binary(string="Image")
+    hand_salary = fields.Float(string="In Hand Salary")
+    epf_esi = fields.Float(string="EPF+ESI")
+    ctc_salary = fields.Float(string="CTC") 
     
     @api.model
     def create(self, vals):
