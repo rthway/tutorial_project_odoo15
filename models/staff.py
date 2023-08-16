@@ -29,14 +29,14 @@ class RestStaff(models.Model):
     @api.constrains('age')
     def val_age(self):
         for record in self:
-            if record.age<=18:
-                raise exceptions.ValidationError(_('The age must be above then 18'))
+            if record.age<=18 or record.age>100:
+                raise exceptions.ValidationError(_('Age must be between 18 and 100.'))
 
 
 
-    name = fields.Char(string="Name", track_visibility="always")
+    name = fields.Char(string="Name", track_visibility="always", required=True)
     gender = fields.Selection([('male','Male'),('female','Female')],string="Gender", default="male")
-    age = fields.Integer(string="Age")
+    age = fields.Integer(string="Age",compute='_compute_age', store=True)
     dob = fields.Date(string="DOB")
     mobile = fields.Char(string="Mobile")
     email = fields.Char(string="Email")
@@ -61,7 +61,16 @@ class RestStaff(models.Model):
                 ctc = ctc+record.epf_esi
             record.ctc_salary = ctc
 
-
+    @api.depends('dob')
+    def _compute_age(self):
+        today = fields.Date.today()
+        for record in self:
+            if record.dob:
+                dob = fields.Date.from_string(record.dob)
+                delta = today - dob
+                record.age = delta.days // 365  # Approximate age in years
+            else:
+                record.age = 0
     
     @api.model
     def create(self, vals):
