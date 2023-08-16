@@ -50,7 +50,19 @@ class RestStaff(models.Model):
     image = fields.Binary(string="Image")
     hand_salary = fields.Float(string="In Hand Salary")
     epf_esi = fields.Float(string="EPF+ESI")
-    ctc_salary = fields.Float(string="CTC") 
+    ctc_salary = fields.Float(string="CTC", compute="calc_ctc")
+
+    @api.depends('hand_salary','epf_esi')
+    def calc_ctc(self):
+        for record in self:
+            ctc = 0
+            if record.hand_salary:
+                ctc = ctc+record.hand_salary
+            if record.epf_esi:
+                ctc = ctc+record.epf_esi
+            record.ctc_salary = ctc
+
+
     
     @api.model
     def create(self, vals):
