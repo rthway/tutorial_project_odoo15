@@ -26,6 +26,13 @@ class RestStaff(models.Model):
     def do_resign(self):
         for rec in self:
             rec.status= 'resigned'
+    
+    @api.constrains('age')
+    def val_age(self):
+        for record in self:
+            if record.age<=18:
+                raise exceptions.ValidationError(_('The age must be above then 18'))
+
 
 
     name = fields.Char(string="Name", track_visibility="always")
