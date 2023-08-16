@@ -28,7 +28,7 @@ class RestStaff(models.Model):
             rec.status= 'resigned'
 
 
-    name = fields.Char(string="Name")
+    name = fields.Char(string="Name", track_visibility="always")
     gender = fields.Selection([('male','Male'),('female','Female')],string="Gender", default="male")
     age = fields.Integer(string="Age")
     dob = fields.Date(string="DOB")
