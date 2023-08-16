@@ -6,7 +6,7 @@
     'author': 'Roshan Kumar Thapa',
     'website': 'https://github.com/rthway',
     'sequence': '-531',
-    'depends': ['base','product'],
+    'depends': ['base','product','mail'],
     'data': [
         'security/ir.model.access.csv',
         'views/staff_view.xml',

@@ -4,6 +4,7 @@ class RestStaff(models.Model):
     _name = 'rest.staff'
     _description = "This is the model for our staff"
     _rec_name='name'
+    _inherit=['mail.thread','mail.activity.mixin']
     _order='age asc'
 
     def new_fun(self):
