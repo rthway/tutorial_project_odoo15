@@ -46,7 +46,7 @@ class RestStaff(models.Model):
     staff_line_ids = fields.One2many('rest.staff.lines', 'connecting_field', string='Staff Line')
     sequence = fields.Integer(string="seq.")
     status = fields.Selection([('active','Active'),('resigned','Resigned')],string="Status", readonly=True, default="active")
-    image = fields.Binary(string="Image")
+    image = fields.Binary(string="Image",track_visibility="always")
     hand_salary = fields.Float(string="In Hand Salary")
     epf_esi = fields.Float(string="EPF+ESI")
     ctc_salary = fields.Float(string="CTC", compute="calc_ctc")

@@ -169,12 +169,25 @@
             </field>
         </record>
 
-        
+        <!-- Graph view-->
+        <record id="rest_staff_graph_view_id" model="ir.ui.view">
+            <field name="name">rest.staff.graph.view.id</field>
+            <field name="model">rest.staff</field>
+            <field name="type">graph</field>
+            <field name="arch" type="xml">
+                <graph string="Staff Graph">
+                    <field name="name"/>
+                    <field name="age" type="measure"/>
+                </graph>
+            </field>
+        </record>
 
+
+        <!--Action recoed here-->
         <record id="rest_staff_action_id" model="ir.actions.act_window">
             <field name="name">Staff</field>
             <field name="res_model">rest.staff</field>
-            <field name="view_mode">tree,form,search,kanban</field>
+            <field name="view_mode">tree,form,search,kanban,graph</field>
             <field name="help" type="html">
                 <p class="o_view_nocontent_empty_folder">
                     There is not record of staff.
@@ -186,7 +199,7 @@
         <record id="rest_staff_action_id" model="ir.actions.act_window">
             <field name="name">All Staff</field>
             <field name="res_model">rest.staff</field>
-            <field name="view_mode">tree,form,search,kanban</field>
+            <field name="view_mode">tree,form,search,kanban,graph</field>
             <field name="help" type="html">
                 <p class="o_view_nocontent_empty_folder">
                     There is not record of staff.
@@ -198,7 +211,7 @@
         <record id="rest_staff_active_action_id" model="ir.actions.act_window">
             <field name="name">Active Staff</field>
             <field name="res_model">rest.staff</field>
-            <field name="view_mode">tree,form,search,kanban</field>
+            <field name="view_mode">tree,form,search,kanban,graph</field>
             <field name="help" type="html">
                 <p class="o_view_nocontent_empty_folder">
                     There is not record of staff.
@@ -210,7 +223,7 @@
         <record id="rest_staff_resigned_action_id" model="ir.actions.act_window">
             <field name="name">Resigned Staff</field>
             <field name="res_model">rest.staff</field>
-            <field name="view_mode">tree,form,search,kanban</field>
+            <field name="view_mode">tree,form,search,kanban,graph</field>
             <field name="help" type="html">
                 <p class="o_view_nocontent_empty_folder">
                     There is not record of staff.
@@ -222,7 +235,7 @@
         <record id="rest_staff_male_action_id" model="ir.actions.act_window">
             <field name="name">Male Staff</field>
             <field name="res_model">rest.staff</field>
-            <field name="view_mode">tree,form,search,kanban</field>
+            <field name="view_mode">tree,form,search,kanban,graph</field>
             <field name="help" type="html">
                 <p class="o_view_nocontent_empty_folder">
                     There is not record of staff.
@@ -236,7 +249,7 @@
         <record id="rest_staff_female_action_id" model="ir.actions.act_window">
             <field name="name">Female Staff</field>
             <field name="res_model">rest.staff</field>
-            <field name="view_mode">tree,form,search,kanban</field>
+            <field name="view_mode">tree,form,search,kanban,graph</field>
             <field name="help" type="html">
                 <p class="o_view_nocontent_empty_folder">
                     There is not record of staff.
