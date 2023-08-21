@@ -32,7 +32,11 @@ class RestStaff(models.Model):
             if record.age<=18 or record.age>100:
                 raise exceptions.ValidationError(_('Age must be between 18 and 100.'))
 
-
+    @api.model
+    def _generate_staff_id(self):
+        seq = self.env['ir.sequence'].sudo().next_by_code('rest.seq.staff') or ''
+        return seq
+    
 
     name = fields.Char(string="Name", track_visibility="always", required=True)
     gender = fields.Selection([('male','Male'),('female','Female')],string="Gender", default="male")
@@ -50,6 +54,7 @@ class RestStaff(models.Model):
     hand_salary = fields.Float(string="In Hand Salary")
     epf_esi = fields.Float(string="EPF+ESI")
     ctc_salary = fields.Float(string="CTC", compute="calc_ctc")
+    seq_num= fields.Char(srting="Seq. No.", readonly=True, copy=False, index=True,default=lambda self: self._generate_staff_id())
 
     @api.depends('hand_salary','epf_esi')
     def calc_ctc(self):

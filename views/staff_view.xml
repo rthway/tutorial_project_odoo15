@@ -15,6 +15,9 @@
                         <button name="do_resign" string="Resigned" type="object" class="oe_highlight" attrs="{'invisible': [('status', '!=', 'active')]}"/>
                     </header>
                     <sheet>
+                        <h1>
+                            <field name="seq_num"/>
+                        </h1>
                         <field name="image" widget="image" style="width:100px;height:100px;"/>
                         <group>
                             <group>
@@ -88,6 +91,7 @@
             <field name="arch" type="xml">
                 <tree string="Staff Tree" decoration-info="status=='active'" decoration-danger="status=='resigned'">
                             <field name="sequence" widget="handle"/>
+                            <field name="seq_num"/>
                             <field name="name"/>
                             <field name="age" avg="Average of Age"/>
                             <field name="gender"/>

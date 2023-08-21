@@ -9,6 +9,7 @@
     'depends': ['base','product','mail'],
     'data': [
         'security/ir.model.access.csv',
+        'data/sequence.xml',
         'views/staff_view.xml',
         'views/menu.xml',
     ],
