@@ -92,3 +92,18 @@ class RestStaffLines(models.Model):
     name = fields.Char(string="Name",  required=True)
     product_id = fields.Many2one('product.product', string="Product", required=True)
     sequence = fields.Integer(string="seq.")
+
+# ORM Methods --------------------------------
+# 1. search
+# 2. search_cunt
+# 3. Browse
+# 4. ref
+# 5. create 
+# 6. write
+# 7. copy
+# 8. unlink
+
+# ORM search
+def check_orm(self):
+    search_var=self.env['rest.staff'].search([])
+    print(search_var)
