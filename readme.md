@@ -320,85 +320,69 @@ These are some of the commonly used `@api` decorators in Odoo. Keep in mind that
 
 ## ORM methods
 In Odoo, ORM (Object-Relational Mapping) methods are used to interact with the database records of models. ORM methods provide a high-level and Pythonic way to perform database operations like creating, reading, updating, and deleting records. Here are some commonly used ORM methods with examples:
+Now, let's explain each ORM method with examples:
 
-1.  **Creating Records**:
-    -   `create()`: Used to create new records in the database.
+### 1.  search: 
+The `search` method is used to search for records that match certain criteria.
+
+    # Example: Find all staff members with the status "active"
+    active_staff = self.env['rest.staff'].search([('status', '=', 'active')])
+
+### 2.  search_count: 
+The search_count method is used to count the number of records that match certain criteria.
 
 
-```
-from odoo import models, fields
+# Example: Count the number of staff members with the status "active"
+active_staff_count = self.env['rest.staff'].search_count([('status', '=', 'active')]) 
 
-class MyModel(models.Model):
-    _name = 'my.model'
+### 3.  `browse`: 
+The browse method is used to retrieve a record by its ID.
 
-    name = fields.Char(string='Name')
-```
-### Creating a new record
-new_record = self.env['my.model'].create({'name': 'New Record Name'})` 
+    # Example: Retrieve a staff member with ID 1
+    staff_member = self.env['rest.staff'].browse(1)
 
-2.  **Reading Records**:
-    -   `search()`: Used to search for records based on certain conditions.
-    -   `browse()`: Used to retrieve specific records by their IDs.
-
-pythonCopy code
-
-```# Searching for records
-records = self.env['my.model'].search([('name', '=', 'Target Name')])
-```
-### Browsing records by ID
-```record = self.env['my.model'].browse(record_id)```
-
-3.  **Updating Records**:
-    -   `write()`: Used to update existing records.
-
-```
-
-`# Updating a record
-record_to_update.write({'name': 'Updated Name'}) 
-```
-4.  **Deleting Records**:
-    -   `unlink()`: Used to delete records from the database.
+### 4.  `ref`: 
+The `ref` method is used to get a reference to a record by its ID.
 
 
 
-```# Deleting a record
-record_to_delete.unlink()
-```
-5.  **Computed Fields**:
-    -   Computed fields are fields that are automatically calculated based on other fields' values. They are defined using the `@api.depends` decorator and computed methods.
+    # Example: Get a reference to a staff member with ID 2
+    staff_ref = self.env.ref('module_name.record_id')
+
+### 5.  `create`: 
+The `create` method is used to create a new record.
 
 
 
-```from odoo import models, fields, api
+    # Example: Create a new staff member
+    new_staff = self.env['rest.staff'].create({
+        'name': 'John Doe',
+        'gender': 'male',
+        'status': 'active'
+    })
 
-class MyModel(models.Model):
-    _name = 'my.model'
-
-    field_a = fields.Float(string='Field A')
-    field_b = fields.Float(string='Field B')
-    computed_field = fields.Float(string='Computed Field', compute='_compute_field')
-
- @api.depends('field_a', 'field_b')
-    def _compute_field(self):
-        for record in self:
-            record.computed_field = record.field_a + record.field_b
-```
-6.  **Constraints**:
-    -   Constraints ensure that certain conditions are met before allowing records to be saved in the database. They are defined using the `@api.constrains` decorator and constraint methods.
+### 6.  `write`: 
+The `write` method is used to update the values of existing records.
 
 
+    # Example: Update the name of a staff member with ID 3
+    
+        staff_to_update = self.env['rest.staff'].browse(3)
+        staff_to_update.write({'name': 'Jane Smith'})
 
-```from odoo import models, fields, api
+### 7.  `copy`: 
+The `copy` method is used to create a copy of a record.
 
-class MyModel(models.Model):
-    _name = 'my.model'
+    # Example: Create a copy of a staff member with ID 4
+        staff_to_copy = self.env['rest.staff'].browse(4)
+        copied_staff = staff_to_copy.copy()
 
-    field_c = fields.Float(string='Field C')
+### 8.  `unlink`: 
+The `unlink` method is used to delete a record.
 
- @api.constrains('field_c')
-    def _check_field_c(self):
-        for record in self:
-            if record.field_c < 0:
-                raise models.ValidationError("Field C cannot be negative.") 
-```
+    # Example: Delete a staff member with ID 5
+    staff_to_delete = self.env['rest.staff'].browse(5)
+    staff_to_delete.unlink()
+
 These are some examples of how ORM methods are used in Odoo.
+
