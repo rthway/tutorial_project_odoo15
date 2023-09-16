@@ -103,7 +103,13 @@ class RestStaffLines(models.Model):
 # 7. copy
 # 8. unlink
 
-# ORM search
+# ORM search ID
+# def check_orm(self):
+#     search_var=self.env['rest.staff'].search([])
+#     print(search_var)
+
+# ORM search name data using id
 def check_orm(self):
     search_var=self.env['rest.staff'].search([])
-    print(search_var)
+    for rec in search_var:
+        print(rec.name)
