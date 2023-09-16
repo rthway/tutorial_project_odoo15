@@ -109,7 +109,13 @@ class RestStaffLines(models.Model):
 #     print(search_var)
 
 # ORM search name data using id
+# def check_orm(self):
+#     search_var=self.env['rest.staff'].search([])
+#     for rec in search_var:
+#         print(rec.name)
+
+# ORM search pass domian data using id / print male records only
 def check_orm(self):
-    search_var=self.env['rest.staff'].search([])
+    search_var=self.env['rest.staff'].search([('gender','=','male')])
     for rec in search_var:
-        print(rec.name)
+        print(rec.name)       
