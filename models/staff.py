@@ -49,6 +49,10 @@ class RestStaff(models.Model):
         for rec in self:
             rec.status = 'resigned'
     
+    # Custom method: Set the'status' field to 'active' Additional Actions button on view
+    def action_change_status_to_resigned(self):
+        self.write({'status': 'resigned'})
+    
     # Validation constraint: Age must be between 18 and 100
     @api.constrains('age')
     def val_age(self):
@@ -93,8 +97,7 @@ class RestStaff(models.Model):
             raise exceptions.ValidationError(_("A staff with this name already exists."))
         return super(RestStaff, self).create(vals)
 
-    # Supercalled unlink method with conditions
-    # @api.ondelete
+    # Supercalled unlink method with conditions --delete Resigned staff data only
     def unlink(self):
         for record in self:
             if record.status == 'active':
@@ -112,6 +115,10 @@ class RestStaffLines(models.Model):
     name = fields.Char(string="Name", required=True)
     product_id = fields.Many2one('product.product', string="Product", required=True)
     sequence = fields.Integer(string="Sequence")
+
+
+
+
 
 # ORM Methods --------------------------------
 # 1. search

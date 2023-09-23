@@ -93,6 +93,10 @@
             <field name="model">rest.staff</field>
             <field name="arch" type="xml">
                 <tree string="Staff Tree" decoration-info="status=='active'" decoration-danger="status=='resigned'">
+                    <header>
+                        <!-- Add the "Bulk Resigned" button -->
+                        <button name="action_change_status_to_resigned" string="Resign" type="object" class="oe_highlight"/>
+                    </header>
                             <field name="sequence" widget="handle"/>
                             <field name="seq_num"/>
                             <field name="name"/>
