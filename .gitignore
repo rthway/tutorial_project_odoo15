@@ -1,5 +1,13 @@
+# Ignore .vscode/ directory
+.vscode/
+
+# Ignore readme.md file
+readme.md
+
+# Ignore all .pyc files
+*.pyc
+models/__pycache__/*.pyc
+
+# Ignore __pycache__ directories (including models/__pycache__)
 __pycache__/
 models/__pycache__/
-.vscode/
-readme.md
-*.pyc
