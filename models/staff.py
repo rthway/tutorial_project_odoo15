@@ -92,6 +92,16 @@ class RestStaff(models.Model):
         if existing_staff:
             raise exceptions.ValidationError(_("A staff with this name already exists."))
         return super(RestStaff, self).create(vals)
+
+    # Supercalled unlink method with conditions
+    # @api.ondelete
+    def unlink(self):
+        for record in self:
+            if record.status == 'active':
+                raise exceptions.ValidationError(_("You cannot delete a record in the 'Active' status."))
+        return super(RestStaff, self).unlink()
+
+
     
 # Define the RestStaffLines model
 class RestStaffLines(models.Model):
@@ -140,3 +150,4 @@ class RestStaffLines(models.Model):
 #     search_var = self.env['rest.staff'].search([])
 #     for rec in search_var:
 #         print(rec.name)
+
